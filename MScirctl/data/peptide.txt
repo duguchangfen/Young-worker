@@ -1,0 +1,2 @@
+MS_ID	peptide	cORF_ID	peptide_score
+EK_V1_146.mgf	WNLLNALDGCPGIEKEGRFQRRK	P_self_wk_circ_002372-ORF3(168,363):NA:38	66.0

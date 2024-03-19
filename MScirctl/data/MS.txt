@@ -1,0 +1,10 @@
+PXD022769	EK_V1_140.raw	LTQ	CID	Arabidopsis thaliana	Seedlings	purified,LD-localised SEED LIPID DROPLET PROTEIN (SLDP) 1 and 2 and PM-localised LIPID DROPLET PLASMA MEMBRANE ADAPTOR	experiment_2
+PXD022769	EK_V1_141.raw	LTQ	CID	Arabidopsis thaliana	Seedlings	purified,LD-localised SEED LIPID DROPLET PROTEIN (SLDP) 1 and 2 and PM-localised LIPID DROPLET PLASMA MEMBRANE ADAPTOR	experiment_4
+PXD022769	EK_V1_142.raw	LTQ	CID	Arabidopsis thaliana	Seedlings	purified,LD-localised SEED LIPID DROPLET PROTEIN (SLDP) 1 and 2 and PM-localised LIPID DROPLET PLASMA MEMBRANE ADAPTOR	control_1
+PXD022769	EK_V1_143.raw	LTQ	CID	Arabidopsis thaliana	Seedlings	purified,LD-localised SEED LIPID DROPLET PROTEIN (SLDP) 1 and 2 and PM-localised LIPID DROPLET PLASMA MEMBRANE ADAPTOR	control_3
+PXD022769	EK_V1_144.raw	LTQ	CID	Arabidopsis thaliana	Seedlings	purified,LD-localised SEED LIPID DROPLET PROTEIN (SLDP) 1 and 2 and PM-localised LIPID DROPLET PLASMA MEMBRANE ADAPTOR	control_2
+PXD022769	EK_V1_145.raw	LTQ	CID	Arabidopsis thaliana	Seedlings	purified,LD-localised SEED LIPID DROPLET PROTEIN (SLDP) 1 and 2 and PM-localised LIPID DROPLET PLASMA MEMBRANE ADAPTOR	control_4
+PXD022769	EK_V1_146.raw	LTQ	CID	Arabidopsis thaliana	Seedlings	purified,LD-localised SEED LIPID DROPLET PROTEIN (SLDP) 1 and 2 and PM-localised LIPID DROPLET PLASMA MEMBRANE ADAPTOR	experiment_1
+PXD022769	EK_V1_147.raw	LTQ	CID	Arabidopsis thaliana	Seedlings	purified,LD-localised SEED LIPID DROPLET PROTEIN (SLDP) 1 and 2 and PM-localised LIPID DROPLET PLASMA MEMBRANE ADAPTOR	experiment_3
+PXD022769	EK_V1_148.raw	LTQ	CID	Arabidopsis thaliana	Seedlings	purified,LD-localised SEED LIPID DROPLET PROTEIN (SLDP) 1 and 2 and PM-localised LIPID DROPLET PLASMA MEMBRANE ADAPTOR	experiment_2
+PXD022769	EK_V1_149.raw	LTQ	CID	Arabidopsis thaliana	Seedlings	purified,LD-localised SEED LIPID DROPLET PROTEIN (SLDP) 1 and 2 and PM-localised LIPID DROPLET PLASMA MEMBRANE ADAPTOR	experiment_4
