@@ -6,7 +6,9 @@ usage: python3 MScirctl1.py [-h] [-ci CIRC_INFO] [-cs CIRC_SEQ_FILE] [-cio CIRC_
 usage: python3 MScirctl2.py [-h] [-fi CIRC_FILE_INPUT] [-pit PATH_INPUT_TSV] [-pip PATH_INPUT_PEPTIDE] [-fip FILE_INPUT_PROTEIN] [-fims FILE_INPUT_PRIDE] [-ec EXCELLENT_COUNT] [-fo FILE_OUT]
 # for example:
 MScirctl below the examples are shown how to set paramaters:
+
 ~$python3.9 MScirctl1.py -cio ./data/circRNA_gff.txt -ds ./data/ath.fa -dg ./data/ath.gff3
+
 ~$python3 MScirctl2.py -fi data/MScirctl1_24-03-18.12/MScirctl1_main_result -pip data/peptide.txt -fip data/ath_protein.fa -fims data/MS.txt
 
 # install requirement:
