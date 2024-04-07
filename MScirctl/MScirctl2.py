@@ -665,9 +665,15 @@ def circ_predict_PRIDE():
     file_circ_predict_PRIDE.close()
 
 def draw_msgf_second(file_input,excellent_count):
+    list_p_l_s = []
     file_input_content = open(file_input,'r')
     file_input_content_header = file_input_content.readline()
     list_start_end = ['(',')','|']
+
+    for p_l_s in list_pro_long_score[:excellent_count]:
+        list_p_l_s.append(str(p_l_s))
+    print(list_p_l_s)
+
     if not os.path.exists(file_out+'Peptide_coverage_map'):
         os.system("mkdir %sPeptide_coverage_map/"%(file_out))
     for line_input in file_input_content:
@@ -690,7 +696,7 @@ def draw_msgf_second(file_input,excellent_count):
         float_circ_seq_coverage = float(line_input.strip().split('\t')[8])*100
         #if float(line_input.strip().split('\t')[8]) < float(pro_cover_limit):
         #    continue
-        if float(pro_long_score) not in list_pro_long_score[:excellent_count]:
+        if str(pro_long_score) not in list_p_l_s:
             continue
         #float_4_circ_seq_coverage = '%.2f'%float_circ_seq_coverage
         #print(float_circ_seq_coverage)
@@ -796,24 +802,28 @@ def draw_msgf_second(file_input,excellent_count):
 def circ_size(circ_len):
     siz = 0.5
     if circ_len < 200:
-        siz = 10
+        siz = 7
     elif circ_len < 400:
-        siz = 4.4
+        siz = 3.9
     elif circ_len < 600:
-        siz = 2.2
+        siz = 2.0
     elif circ_len < 800:
-        siz = 1.5
+        siz = 1.7
     elif circ_len < 1000:
-        siz = 1.2
+        siz = 1.4
     elif circ_len <= 1200:
-        siz = 0.4
+        siz = 0.6
     return siz
 
 def draw_circ_corf():
+    list_p_l_s = []
     dic_circ_corf_txt = {}
     file_circ_predict = open(file_out + 'circ_predict.txt','r')
     file_circ_predict_header = file_circ_predict.readline()
     #print(list_pro_long_score[:excellent_count])
+    for p_l_s in list_pro_long_score[:excellent_count]:
+        list_p_l_s.append(str(p_l_s))
+    
     for row_circ_predict in file_circ_predict:
         circ_gene = row_circ_predict.strip().split('\t')[1]
         circ_corf_id = row_circ_predict.strip().split('\t')[3].split('-')[0]
@@ -821,7 +831,7 @@ def draw_circ_corf():
         circ_corf_seq_x = row_circ_predict.strip().split('\t')[7]
         pro_long_score = row_circ_predict.strip().split('\t')[14]
 
-        if float(pro_long_score) not in list_pro_long_score[:excellent_count]:
+        if str(pro_long_score) not in list_p_l_s:
             continue
         if circ_corf_id not in dic_circ_corf_txt.keys():
             dic_circ_corf_txt.update({circ_corf_id:circ_gene+'\t'+circ_corf_seq+'\t'+circ_corf_seq_x})
@@ -867,7 +877,7 @@ def draw_circ_corf():
         for i in range(0,circ_seq_len):
             plt.text(xc[i],yc[i],circ_sequence[i],size=siz/1.2,rotation=-i/360,color='black')
         if circ_surplus != 0 :
-            plt.text(-0.5,-5.5,'surplus:'+str(circ_surplus)+'nucleotide')
+            plt.text(-0.5,-5.5,'surplus:'+str(circ_surplus)+'nucleotide',fontsize=10)
         
         for row_circ_predict in dic_circ_corf_txt[circ_corf_id].split(';'):
             circ_gene = row_circ_predict.strip().split('\t')[0]
@@ -908,8 +918,9 @@ def draw_circ_corf():
                     plt.scatter(xco[i],yco[i],marker='o',alpha=0.000000000006,color='blue',s=siz*10+15)
                     plt.text(xco[i],yco[i],circ_corf_seq[i],fontsize=siz+1.3,rotation=-ang[i],color='blue')
                     #plt.text(xco[i],yco[i],'__',fontsize=siz+3.5,rotation=-ang[i],color='blue')
-        plt.text(-1.0,0.0,circ_corf_id,color='black',fontsize=siz+2.2)
-        plt.text(-1.0,-0.5,'Gene:'+circ_gene,color='black',fontsize=siz+2.2)
+        plt.text(0.0,0.5,circ_corf_id,color='black',fontsize=15+4*(4/siz),verticalalignment='center',horizontalalignment='center')
+        print(circ_corf_id)
+        plt.text(0.0,-0.5,'Gene:'+circ_gene,color='black',fontsize=15+4*(4/siz),verticalalignment='center',horizontalalignment='center')
         plt.axis("equal")
         plt.axis('off')
         plt.savefig(file_out + 'circRNA_Peptide_coverage_map/'+circ_corf_id+'.pdf',bbox_inches='tight')
@@ -953,5 +964,4 @@ draw_msgf_second(file_out + 'circ_predict.txt',excellent_count)
 
 #circRNA和开放阅读框
 draw_circ_corf()
-
 
