@@ -584,7 +584,7 @@ def circ_peptide_result():
             #总结果的写出
             #print(circ_orf_id,circ_orf_seq)
             pro_number_score,marge_peptide_bsj_multiple,corf_peptide_vatio,bsj_location,raw_sum,number_all,mgf_score_all = circ_orf_tsv_peptide_map(circ_orf_id,circ_orf_seq)
-            
+            """
             #新加字符串circRNA翻译产物打分值
             pro_long_score = 0
             for pro_number_score_single in pro_number_score.strip(';').split(';'):
@@ -595,7 +595,7 @@ def circ_peptide_result():
                 pro_score = pro_number_score_single.strip().split('|')[2]
                 pro_long_score = pro_long_score + float(pro_count)*float(pro_score)
             list_pro_long_score.append(pro_long_score)
-
+            """
             if marge_peptide_bsj_multiple == 'none' and corf_peptide_vatio == 'none' :
                 continue
             if 'X|' in marge_peptide_bsj_multiple or '|X' in marge_peptide_bsj_multiple:
@@ -627,6 +627,18 @@ def circ_peptide_result():
                 ll = 1
             else :
                 continue
+
+            #新加字符串circRNA翻译产物打分值
+            pro_long_score = 0
+            for pro_number_score_single in pro_number_score.strip(';').split(';'):
+                if pro_number_score_single == 'none':
+                    continue
+                #print(pro_number_score_single)
+                pro_count = pro_number_score_single.strip().split('|')[1]
+                pro_score = pro_number_score_single.strip().split('|')[2]
+                pro_long_score = pro_long_score + float(pro_count)*float(pro_score)
+            list_pro_long_score.append(pro_long_score)
+
             row_circ_predict = circ_info_id + '\t' + circ_gene + '\t' + circ_strand + '\t' + circ_orf_id.strip().split('(')[0] + '\t' + circ_ires + '\t' + circ_orf_seq + '\t' + circ_orf_line_location + '\t' + marge_peptide_bsj_multiple + '\t' + str(corf_peptide_vatio) + '\t' + bsj_location + '\t' + str(raw_sum) + '\t' + str(number_all) + '\t' + pro_number_score + '\t' + mgf_score_all + '\t' + str(pro_long_score) + '\n'
             file_circ_predict.write(row_circ_predict)
             file_first_predict = file_first_predict + row_circ_predict
